@@ -35,7 +35,7 @@ public class Main {
         GraphDatabaseFactory dbFactory = new GraphDatabaseFactory();
         GraphDatabaseService graphDb;
         graphDb = dbFactory.newEmbeddedDatabase(
-                new File("C:/Users/stuar/Documents/Neo4j","default.graphdb"));
+                new File("default.graphdb"));
         
        
         try(Transaction tx = graphDb.beginTx()){

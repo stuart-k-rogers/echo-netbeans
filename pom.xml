@@ -21,23 +21,55 @@
             <url>http://repository.springsource.com/maven/bundles/external</url>
         </repository>  
     </repositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.johnrengelman</groupId>
+                <artifactId>shadow</artifactId>
+                <version>1.2.3</version>
+            </plugin>
+           <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                   <descriptorRefs>
+                      <descriptorRef>jar-with-dependencies</descriptorRef>
+                   </descriptorRefs>
+                   <archive>
+                      <manifest>
+                          <mainClass>barltrop.echo.memory.Main</mainClass>
+                      </manifest>
+                   </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>                         
+                            <goal>single</goal>
+                        </goals>
+                     </execution>
+                 </executions>
+            </plugin>
+          </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j</artifactId>
-            <version>3.2.6</version>
+            <version>3.4.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.neo4j.test</groupId>
             <artifactId>neo4j-harness</artifactId>
-            <version>3.2.6</version>
+            <version>3.4.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.neo4j.driver</groupId>
             <artifactId>neo4j-java-driver</artifactId>
-            <version>1.2.1</version>
+            <version>1.6.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -49,29 +81,29 @@
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-kernel</artifactId>
-            <version>3.2.6</version>
+            <version>3.4.1</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-graphdb-api</artifactId>
-            <version>3.2.6</version>
+            <version>3.4.1</version>
             <type>jar</type>
         </dependency>
         <dependency> 
            <groupId>org.neo4j</groupId>
            <artifactId>neo4j-lucene-index</artifactId>   
-           <version>3.2.6</version>
+           <version>3.4.1</version>
         </dependency>
         <dependency> 
            <groupId>org.neo4j</groupId>
            <artifactId>neo4j-cypher</artifactId>   
-           <version>3.2.6</version>
+           <version>3.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
-            <version>2.11.8</version>
+            <version>2.11.12</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -82,7 +114,7 @@
         <dependency>
             <groupId>org.ros.rosjava_messages</groupId>
             <artifactId>std_msgs</artifactId>
-            <version>0.5.10</version>
+            <version>0.5.11</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -100,7 +132,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>12.0</version>
+            <version>12.0.1</version>
             <type>jar</type>
         </dependency>
     </dependencies>
